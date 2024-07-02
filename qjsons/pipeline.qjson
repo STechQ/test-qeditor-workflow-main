@@ -1,0 +1,108 @@
+let pjson = {
+	"pJson": [
+		{
+			"T": "Messaging",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_22",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"onBeforeRequest": {
+					"H": "quick.EM.trace('Pipeline Inside onBeforeRequest Event');\r\n\r\ndeclare var requestObject: IRequest;\r\n\r\n// ADDING HEADER\r\n// - adding header\r\nrequestObject.headers[\"pipelineKey\"] = \"pipelineValue\";\r\n\r\n// - adding header from bagStore\r\nlet pipelineBagStoreValue = quick.store.get(\"#pipelineBagStoreKey\");\r\nrequestObject.headers[\"pipelineBagStoreKey\"] = pipelineBagStoreValue\r\n\r\n// - adding header according to url\r\nif (requestObject.url.indexOf(\"employees\") > -1) {\r\n    requestObject.headers[\"pipelineKey2\"] = \"pipelineValue2\"\r\n}\r\n\r\n// ADDING DATA - You can add all of type data.\r\nrequestObject.data[\"pipelineData\"] = { key: \"myDataKey\", value: \"myDataValue\" };\r\n\r\n//SETTING TIMEOUT\r\nrequestObject.timeout = 20000;\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "TS"
+				},
+				"onAfterResponse": {
+					"H": "//MANILAPUTE THE SUCCESSFUL RESPONSE\r\ndebugger;\r\ndeclare var response: INetworkResponse;\r\n\r\nquick.EM.trace('Pipeline Inside onAfterResponse Event');\r\nquick.EM.trace(response);\r\n\r\n//READ RESPONSE\r\nlet responseData = response.data;\r\nlet responseHeaders = response.headers;\r\nlet responseStatus = response.status;\r\nlet responseStatusText = response.statusText;\r\n\r\n//MANILAPUTE THE SUCCESSFUL RESPONSE\r\nresponse.data[\"myResponse\"] = \"myResponse 1\";\r\nresponse.headers[\"myResponseHeader\"] = \"myResponseHeader\";",
+					"C": true,
+					"EV": true,
+					"HL": "TS"
+				},
+				"onAfterErrorResponse": {
+					"H": "//MANILAPUTE THE FAILED RESPONSE\r\n\r\ndeclare var response: INetworkResponse;\r\n\r\nquick.EM.trace('Pipeline Inside onAfterErrorResponse Event');\r\nquick.EM.trace(response);\r\n\r\n//READ RESPONSE\r\nlet responseData = response.data;\r\nlet responseHeaders = response.headers;\r\nlet responseStatus = response.status;\r\nlet responseStatusText = response.statusText;\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "TS"
+				},
+				"onPostRender": {
+					"H": "// this event is triggered after each page render in the application\r\nquick.EM.trace('Pipeline Inside onPostRender Event');",
+					"C": true,
+					"EV": true,
+					"HL": "TS"
+				},
+				"logHandler": {
+					"H": "// Accessing printed logs;\r\n\r\n// The system described below can be used to use the logs (EM.trace) written on the front page (qjson)\r\n// and the logs printed on the engine (such as sending to service, keeping in the store etc.).\r\n\r\ndeclare var messages: IMessage;\r\n\r\nlet messageMsg = messages.message; // Log message\r\nlet messageType = messages.type; // Debug | MobilDebug | Trace | Warning | Error\r\nlet messageTime = messages.time; // When the browser writes the message\r\nlet messageCaller = messages.caller; // Caller function name of the message ",
+					"C": true,
+					"EV": true,
+					"HL": "TS"
+				}
+			},
+			"C": {},
+			"_Editor": {
+				"eID": "EdtrComp_22"
+			},
+			"O": {
+				"compDomClasses": "newDropBorder",
+				"cType": "child"
+			}
+		}
+	],
+	"cJson": [
+		{
+			"T": "Messaging",
+			"P": {
+				"ID": {
+					"H": "EdtrComp_22",
+					"T": "prop"
+				}
+			},
+			"E": {
+				"onBeforeRequest": {
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\nquick.EM.trace('Pipeline Inside onBeforeRequest Event');\r\n// ADDING HEADER\r\n// - adding header\r\nrequestObject.headers[\"pipelineKey\"] = \"pipelineValue\";\r\n// - adding header from bagStore\r\nvar pipelineBagStoreValue = quick.store.get(\"#pipelineBagStoreKey\");\r\nrequestObject.headers[\"pipelineBagStoreKey\"] = pipelineBagStoreValue;\r\n// - adding header according to url\r\nif (requestObject.url.indexOf(\"employees\") > -1) {\r\n    requestObject.headers[\"pipelineKey2\"] = \"pipelineValue2\";\r\n}\r\n// ADDING DATA - You can add all of type data.\r\nrequestObject.data[\"pipelineData\"] = { key: \"myDataKey\", value: \"myDataValue\" };\r\n//SETTING TIMEOUT\r\nrequestObject.timeout = 20000;\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "JS"
+				},
+				"onAfterResponse": {
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\n//MANILAPUTE THE SUCCESSFUL RESPONSE\r\ndebugger;\r\nquick.EM.trace('Pipeline Inside onAfterResponse Event');\r\nquick.EM.trace(response);\r\n//READ RESPONSE\r\nvar responseData = response.data;\r\nvar responseHeaders = response.headers;\r\nvar responseStatus = response.status;\r\nvar responseStatusText = response.statusText;\r\n//MANILAPUTE THE SUCCESSFUL RESPONSE\r\nresponse.data[\"myResponse\"] = \"myResponse 1\";\r\nresponse.headers[\"myResponseHeader\"] = \"myResponseHeader\";\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "JS"
+				},
+				"onAfterErrorResponse": {
+					"H": "//MANILAPUTE THE FAILED RESPONSE\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nquick.EM.trace('Pipeline Inside onAfterErrorResponse Event');\r\nquick.EM.trace(response);\r\n//READ RESPONSE\r\nvar responseData = response.data;\r\nvar responseHeaders = response.headers;\r\nvar responseStatus = response.status;\r\nvar responseStatusText = response.statusText;\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "JS"
+				},
+				"onPostRender": {
+					"H": "Object.defineProperty(exports, \"__esModule\", { value: true });\r\n// this event is triggered after each page render in the application\r\nquick.EM.trace('Pipeline Inside onPostRender Event');\r\n",
+					"C": true,
+					"EV": true,
+					"HL": "JS"
+				},
+				"logHandler": {
+					"H": "// Accessing printed logs;\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar messageMsg = messages.message; // Log message\r\nvar messageType = messages.type; // Debug | MobilDebug | Trace | Warning | Error\r\nvar messageTime = messages.time; // When the browser writes the message\r\nvar messageCaller = messages.caller; // Caller function name of the message \r\n",
+					"C": true,
+					"EV": true,
+					"HL": "JS"
+				}
+			},
+			"C": {},
+			"_Editor": {
+				"eID": "EdtrComp_22"
+			},
+			"O": {
+				"compDomClasses": "newDropBorder",
+				"cType": "child"
+			}
+		}
+	],
+	"lrids": {},
+	"clrids": {},
+	"opt": {}
+};
+export default pjson

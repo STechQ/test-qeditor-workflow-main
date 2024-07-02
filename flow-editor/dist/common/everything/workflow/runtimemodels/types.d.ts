@@ -1,0 +1,11 @@
+export declare const WorkflowModelTypeTag = "workflow";
+export type WorkflowModelType = typeof WorkflowModelTypeTag;
+export type DateTime = string;
+export type ActionType = "start" | "complete" | "claim" | "assignToUser" | "assignToUnit" | "save" | "function" | "trigger";
+export type CustomType = string;
+export declare const Created = "Created";
+export declare const Updated = "Updated";
+export declare const TaskCompleted = "Task Completed";
+export declare const Finished = "Finished";
+export type NotificationActionTypes = typeof Created | typeof Updated | typeof TaskCompleted | typeof Finished;
+//# sourceMappingURL=types.d.ts.map

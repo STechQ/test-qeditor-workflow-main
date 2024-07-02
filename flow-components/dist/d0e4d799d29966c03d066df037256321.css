@@ -1,0 +1,17 @@
+@import "../index.css";
+
+.button-flow {
+    height: 32px;
+    border-radius: 4px;
+}
+
+.button-flow.primary {
+    background-color: #151233;
+    color: #FFF;
+}
+
+.button-flow.secondary {
+    background-color: #FFF;
+    color: #151233;
+    border: 1px solid #151233;
+}
