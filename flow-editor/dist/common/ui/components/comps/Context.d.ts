@@ -12,6 +12,7 @@ interface IContextProps {
     }>;
     context: IStoreContext;
     schema: Store;
+    readonly?: boolean;
     onChange: (context: IStoreContext) => void;
 }
 export declare const Context: FC<IContextProps>;

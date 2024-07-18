@@ -7,8 +7,8 @@ import { Omit2 } from "./platform/tsHelperTypes";
 import { IPlatformWorkflowAdaptor } from "./platform/IPlatformWorkflowAdaptor";
 export interface IRuntimeMessageContext {
     vars: any;
-    appConstants: any;
-    globalConstants: any;
+    appConstants?: any;
+    globalConstants?: any;
     currentUser?: any;
     enums?: any;
     dataInstance?: any;

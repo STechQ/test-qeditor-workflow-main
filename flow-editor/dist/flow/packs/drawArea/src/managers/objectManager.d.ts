@@ -3,7 +3,7 @@ import { FlowStep } from "../objects/flowStep";
 import { FlowObjectBase } from "../objects/flowObjectBase";
 import { ZuiManager } from "./zuiManager";
 import { FlowConnection, FlowConnectionFrom, FlowConnectionTo } from "../objects/flowConnection";
-import { FlowEvents, IFlowCopy, IFlowExport, IFlowStepOptions, IFlowStepSwimlane, ISwimlaneExport } from "../../types";
+import { FlowEvents, IFlowCopy, IFlowExport, IFlowStepOptions, IFlowStepProps, IFlowStepSwimlane, IFlowStepUpdate, ISwimlaneExport } from "../../types";
 import { SelectionManager } from "./selectionManager";
 import { EventHelper } from "../helper/eventHelper";
 import { ISwitchCaseExp } from "../../../../../common/everything/flow/runtimeModels/ISwitch";
@@ -20,7 +20,8 @@ export declare class ObjectManager {
     addAllSwitchCases(switchCases: ISwitchCaseExp): void;
     private addOperator;
     updateSwimlanes(steps: Array<IFlowStepSwimlane>, swimlanes: Array<ISwimlaneExport>): void;
-    addFlowStep(stepName: string, surfacePoint: IPoint, options: IFlowStepOptions, stepDescription?: string, tagName?: string): FlowStep;
+    updateSteps(steps: Array<IFlowStepUpdate>): void;
+    addFlowStep(stepName: string, surfacePoint: IPoint, options: IFlowStepOptions, props?: IFlowStepProps): FlowStep;
     private _addFlowStep;
     addFlowConnection(from: FlowConnectionFrom, to: FlowConnectionTo, isSwitchCase?: boolean): FlowConnection;
     private _addFlowConnection;

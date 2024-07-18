@@ -36,7 +36,6 @@ export interface IWFStepModel extends IStepModel {
 export type IWFPropObject = IPropObject & {
     stepId: string;
     name?: string;
-    label?: string;
     version?: string;
     swimlane: string;
     props: IWFStepInlineFlowModelProps | IWFStepProps | ISwitchProps;
@@ -54,6 +53,7 @@ export type IExecuteFlowByMapping = {
 };
 export type IWFStepProps = {
     type: "humanStartEnd";
+    label?: IExpressionData;
     forms: Array<IForm>;
     actions: Array<IAction>;
     sla?: ISLA;

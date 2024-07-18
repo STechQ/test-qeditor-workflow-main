@@ -25,6 +25,7 @@ export interface IExpressionOptions {
 export interface IModelBodyIO {
     inputs: Record<string, IVariable>;
     outputs: Record<string, IVariable>;
+    otherProps?: Record<string, any>;
 }
 export type GetModelBodyIO = (id: string, bodyKey: string) => Promise<IModelBodyIO>;
 export type GetRoles = () => Array<IExpressionData>;

@@ -44,6 +44,8 @@ export interface IViewModel {
     readonly: boolean;
     isWorkFlow?: boolean;
     roles: Array<IExpressionData>;
+    name?: string;
+    _name?: string;
     selectedSwitchCase?: ISelectedSwitchCase;
     schema: Store;
     sla: ISLA;

@@ -12,6 +12,7 @@ export interface IStoreProps {
         ID: string;
         name: string;
     }>;
+    readonly?: boolean;
     onChange: (store: StoreModel) => void;
 }
 export declare function mountStore(element: HTMLElement, props: IStoreProps): {

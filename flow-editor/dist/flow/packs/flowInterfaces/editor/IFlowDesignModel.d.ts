@@ -8,6 +8,8 @@ export interface IFlowDesignModel extends IFlowCopyModel {
     maxID: number;
 }
 export interface IFlowCopyModel {
+    name?: string;
+    _name?: string;
     steps: Array<IStepDesignModel>;
     connections: Array<IConnectionDesignModel>;
     swimlanes?: Record<string, ISwimlaneDesignModel>;

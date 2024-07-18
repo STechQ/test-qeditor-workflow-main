@@ -1,13 +1,15 @@
 import { IPoint } from "../../../flowInterfaces/editor/shape/IPoint";
-import { RoundedRectangle } from "two.js/src/shapes/rounded-rectangle";
+import { Text } from "two.js/src/text";
 import { Circle } from "two.js/src/shapes/circle";
 import { FlowObjectBase, MouseDownReturn } from "./flowObjectBase";
 import { ObjectManager } from "../managers/objectManager";
 import { Vector } from "two.js/src/vector";
 import { StageType, ZuiManager } from "../managers/zuiManager";
-import { FlowEvents, IFlowStepOptions } from "../../types";
+import { FlowEvents, IFlowStepOptions, IFlowStepProps } from "../../types";
 import { FlowConnection } from "./flowConnection";
 import { EventHelper } from "../helper/eventHelper";
+import { Path } from "two.js/src/path";
+import { IExpressionData } from "../../../../../common/everything/dataType/runtimemodels/IExpression";
 type GetPositionOptions = {
     type: "self" | "group";
 } | {
@@ -18,12 +20,13 @@ export declare class FlowStep extends FlowObjectBase {
     readonly stepName: string;
     private readonly container;
     private readonly name;
-    private readonly width;
-    private readonly height;
-    private readonly text;
+    private readonly shapeInfo;
+    private readonly labelInfo;
+    private readonly descriptionInfo;
+    private readonly iconInfo;
+    private readonly swimlaneInfo;
     private readonly group;
-    private readonly tagContainer;
-    private readonly tag;
+    private readonly textWidthCalculator;
     private outputs;
     private inputs;
     private inputConns;
@@ -31,23 +34,29 @@ export declare class FlowStep extends FlowObjectBase {
     private outputsOrdered;
     private inputsOrdered;
     private swimlaneId?;
+    private label;
+    private description;
     readonly type = "step";
     protected readonly stageType: StageType;
-    constructor(id: string, stepName: string, surfacePoint: IPoint, options: IFlowStepOptions, objectManager: ObjectManager, zuiManager: ZuiManager, eventHelper: EventHelper<FlowEvents>, stepDescription?: string, tagName?: string);
-    private createTag;
-    private createTagContainer;
-    private createSubTitle;
-    private createTitle;
+    constructor(id: string, stepName: string, surfacePoint: IPoint, options: IFlowStepOptions, objectManager: ObjectManager, zuiManager: ZuiManager, eventHelper: EventHelper<FlowEvents>, props?: IFlowStepProps);
+    private getLabelMaxWidth;
+    private createSwimlaneText;
+    private createSwimlaneContainer;
+    private createDescription;
+    private createLabel;
     private createIcon;
     private createBar;
     private createRectangleContainer;
     createCircleContainer(x: number, y: number): Circle;
+    createRhombusContainer(x: number, y: number): Path;
     get Options(): IFlowStepOptions;
     get SwimlaneId(): string | undefined;
+    get Label(): IExpressionData | undefined;
+    get Description(): string | undefined;
     setSwimlaneId(swimlaneId?: string): void;
     mouseDown(surfacePoint: IPoint): MouseDownReturn;
-    protected createSelectionOverlay(): (Circle | RoundedRectangle)[];
-    private isStepCircle;
+    protected createSelectionOverlay(): Path[];
+    private getBorder;
     moveBy(dVector: Vector, surfacePoint: IPoint): void;
     mouseUp(): void;
     protected onDeleted(): void;
@@ -64,10 +73,14 @@ export declare class FlowStep extends FlowObjectBase {
     getConnectionsTo(output: string, toStep: FlowStep): Array<FlowConnection>;
     private drawInputs;
     private drawOutputs;
+    private drawRhombusOutputs;
     private drawIOs;
     private afterDraw;
     private colorIO;
     setOutputs(outputs: Array<string>): void;
+    setLabel(label: IExpressionData): void;
+    setDescription(description: string): void;
+    truncateTextToFit(text: Text, content: string, maxWidth: number): void;
 }
 export {};
 //# sourceMappingURL=flowStep.d.ts.map

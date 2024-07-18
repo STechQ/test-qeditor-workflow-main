@@ -24,10 +24,19 @@ export interface ISoapServiceModel extends IModelBaseFields {
         value: IExpressionData;
     }>;
     security?: ISoapSecurityInfo;
+    mock?: Array<ISoapMock>;
     store: Store;
 }
 export interface ISoapSecurityInfo {
     username: IExpressionData;
     password: IExpressionData;
+}
+export interface ISoapMock {
+    reqExp: string;
+    requestHeader?: Record<string, string>;
+    requestBody?: Record<string, any>;
+    responseHeaders: Record<string, string>;
+    responseBody: Record<string, any>;
+    responseStatus: number;
 }
 //# sourceMappingURL=ISoapServiceModel.d.ts.map

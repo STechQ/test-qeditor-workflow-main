@@ -1,3 +1,4 @@
+import { IExpressionData } from "../../../common/everything/dataType/runtimemodels/IExpression";
 import { ISwitchCaseExp } from "../../../common/everything/flow/runtimeModels/ISwitch";
 import { IFlowState } from "../flowInterfaces/editor/IFlowEditorState";
 import { IInputInfo } from "../flowInterfaces/editor/IStepOptions";
@@ -8,12 +9,16 @@ export interface IFlowStepOptions {
     icon?: string;
     color?: string;
 }
-export interface IFlowStepExport {
+export interface IFlowStepProps {
+    label?: IExpressionData;
+    description?: string;
+    swimlaneId?: string;
+}
+export interface IFlowStepExport extends IFlowStepProps {
     ID: string;
     name: string;
     surfacePoint: IPoint;
     options: IFlowStepOptions;
-    swimlaneId?: string;
 }
 export interface IFlowConnectionExport {
     ID: string;
@@ -44,6 +49,11 @@ export interface IFlowStepSwimlane {
     stepId?: string;
     swimlane?: string;
 }
+export interface IFlowStepUpdate {
+    stepId?: string;
+    label?: IExpressionData;
+    description?: string;
+}
 export interface IFlowStepEventInfo {
     type: "step" | "connection" | "swimlane" | "operator";
     ID: string;
@@ -72,8 +82,9 @@ export interface IDrawArea {
     attach(element: HTMLElement): void;
     detach(): void;
     updateSwimlanes(steps: Array<IFlowStepSwimlane>, swimlanes: Array<ISwimlaneExport>): void;
+    updateSteps(steps: Array<IFlowStepSwimlane>): void;
     addAllSwitchCases(switchCase: ISwitchCaseExp): void;
-    addFlowStep(stepName: string, clientPoint: IPoint, options: IFlowStepOptions, stepDescription?: string, swimlaneName?: string): string;
+    addFlowStep(stepName: string, clientPoint: IPoint, options: IFlowStepOptions, props?: IFlowStepProps): string;
     deleteFlowSteps(stepIDs: Array<string>): void;
     deleteAllFlowSteps(): void;
     panBy(dx: number, dy: number): void;

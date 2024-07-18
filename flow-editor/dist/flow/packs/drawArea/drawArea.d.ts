@@ -1,5 +1,5 @@
 import { IPoint } from "../flowInterfaces/editor/shape/IPoint";
-import { FlowEvents, IDrawArea, IFlowCopy, IFlowExport, IFlowStepOptions, IFlowStepSwimlane, ISwimlaneExport } from "./types";
+import { FlowEvents, IDrawArea, IFlowCopy, IFlowExport, IFlowStepOptions, IFlowStepProps, IFlowStepSwimlane, IFlowStepUpdate, ISwimlaneExport } from "./types";
 import { IFlowState } from "../flowInterfaces/editor/IFlowEditorState";
 import { ISwitchCaseExp } from "../../../common/everything/flow/runtimeModels/ISwitch";
 export declare class DrawArea implements IDrawArea {
@@ -9,8 +9,9 @@ export declare class DrawArea implements IDrawArea {
     attach(element: HTMLElement): void;
     detach(): void;
     updateSwimlanes(steps: Array<IFlowStepSwimlane>, swimlanes: Array<ISwimlaneExport>): void;
+    updateSteps(steps: Array<IFlowStepUpdate>): void;
     addAllSwitchCases(switchCases: ISwitchCaseExp): void;
-    addFlowStep(stepName: string, clientPoint: IPoint, options: IFlowStepOptions, stepDescription?: string, swimlaneName?: string): string;
+    addFlowStep(stepName: string, clientPoint: IPoint, options: IFlowStepOptions, props: IFlowStepProps): string;
     deleteFlowSteps(stepIDs: Array<string>): void;
     deleteAllFlowSteps(): void;
     panBy(dx: number, dy: number): void;

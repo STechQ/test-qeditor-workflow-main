@@ -6,7 +6,7 @@ import { EnumModelType } from "../../enum/runtimeModels/types";
 import { DataTypeModelType } from "../../dataType/runtimemodels/types";
 import { IStudioUIObjectBase } from "./IStudioUIObjectBase";
 export type ContentType = "qjson" | "js" | "ts" | "yaml" | "css" | "png" | "jpg" | "jpeg" | "svg" | "gif" | "lottie" | "woff" | "woff2" | "ttf" | "otf" | "json";
-export type ModelType = ContentType | "bpmn" | "process" | "entityDesigner" | "namedComponent" | FlowModelType | WorkflowModelType | RestServiceModelType | SoapServiceModelType | "step" | /*"flowEntity" //FLOW ENTITY IS GOING BYE BYE (perhaps 🤔) |*/ "appSettings" | DataTypeModelType | EnumModelType;
+export type ModelType = ContentType | "bpmn" | "process" | "entityDesigner" | "namedComponent" | FlowModelType | WorkflowModelType | RestServiceModelType | SoapServiceModelType | "step" | /*"flowEntity" //FLOW ENTITY IS GOING BYE BYE (perhaps 🤔) |*/ "appSettings" | DataTypeModelType | EnumModelType | "erronous";
 export interface IStudioUIModelBase extends IStudioUIObjectBase {
     modelType: ModelType;
     path: string;
