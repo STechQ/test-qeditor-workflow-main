@@ -7,10 +7,7 @@ import { Omit2 } from "./platform/tsHelperTypes";
 import { IPlatformWorkflowAdaptor } from "./platform/IPlatformWorkflowAdaptor";
 export interface IRuntimeMessageContext {
     vars: any;
-    appConstants?: any;
-    globalConstants?: any;
     currentUser?: any;
-    enums?: any;
     dataInstance?: any;
     processInstance?: any;
 }
@@ -18,6 +15,8 @@ export type RuntimeMessage = {
     input: any;
     context: IRuntimeMessageContext;
     output?: any;
+    constants?: Record<string, any>;
+    constantsWId?: Record<string, any>;
 };
 export type StateValues = Record<string, any>;
 export interface ICommonState<T> {

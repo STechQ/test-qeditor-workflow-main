@@ -1,4 +1,3 @@
-import { IEnumModel } from "../../enum/runtimeModels/IEnumModel";
 import { IVariable, IVariableData } from "../../dataType/runtimemodels/IVariable";
 import { IDataEventMapping, IEventMapping, IStoreFunction } from "./IStoreFunction";
 export type Store = IStoreModelForService | IStoreModelForWorkflow | IStoreModelForFlow | IStoreModelForUI;
@@ -16,10 +15,7 @@ export type IStoreModelForUI = IStoreModelBase<IStoreContextForUI> & {
 };
 export type StoreContextKeys = keyof IStoreContextForService | keyof IStoreContextForWorkflow | keyof IStoreContextForFlow | keyof IStoreContextForUI;
 export type IStoreContextBase = {
-    appConstants?: Record<string, IVariable>;
-    globalConstants?: Record<string, IVariable>;
     currentUser?: IVariable;
-    enums?: Record<string, IEnumModel>;
     vars?: Record<string, IVariable>;
 };
 export type IStoreContextForService = IStoreContextBase & {};

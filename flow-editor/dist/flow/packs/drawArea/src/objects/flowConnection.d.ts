@@ -24,7 +24,8 @@ export declare class FlowConnection extends FlowObjectBase {
     private _to;
     readonly type = "connection";
     protected readonly stageType: StageType;
-    private line?;
+    private lines;
+    private arrow?;
     private prevTo;
     private events;
     constructor(id: string, from: FlowConnectionFrom, _to: FlowConnectionTo, objectManager: ObjectManager, zuiManager: ZuiManager, eventHelper: EventHelper<FlowEvents>);
@@ -36,6 +37,7 @@ export declare class FlowConnection extends FlowObjectBase {
     mouseUp(): void;
     protected onDeleted(): never[];
     reDraw(): void;
+    private createLinesAndArrowPoints;
     private createFromTo;
     private registerToStep;
     private unregisterToStep;

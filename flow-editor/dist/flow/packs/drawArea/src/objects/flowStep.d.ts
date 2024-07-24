@@ -16,17 +16,24 @@ type GetPositionOptions = {
     type: "input" | "output";
     name: string;
 };
+type StepShapeInfo = {
+    rectangle?: boolean;
+    circle?: boolean;
+    rhombus?: boolean;
+    width: number;
+    height: number;
+};
 export declare class FlowStep extends FlowObjectBase {
     readonly stepName: string;
     private readonly container;
     private readonly name;
-    private readonly shapeInfo;
     private readonly labelInfo;
     private readonly descriptionInfo;
     private readonly iconInfo;
     private readonly swimlaneInfo;
     private readonly group;
     private readonly textWidthCalculator;
+    private shapeInfo;
     private outputs;
     private inputs;
     private inputConns;
@@ -53,6 +60,7 @@ export declare class FlowStep extends FlowObjectBase {
     get SwimlaneId(): string | undefined;
     get Label(): IExpressionData | undefined;
     get Description(): string | undefined;
+    get ShapeInfo(): StepShapeInfo | undefined;
     setSwimlaneId(swimlaneId?: string): void;
     mouseDown(surfacePoint: IPoint): MouseDownReturn;
     protected createSelectionOverlay(): Path[];

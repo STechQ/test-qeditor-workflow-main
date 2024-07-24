@@ -48,6 +48,7 @@ export interface IViewModel {
     _name?: string;
     selectedSwitchCase?: ISelectedSwitchCase;
     schema: Store;
+    priority: number;
     sla: ISLA;
     resetHistory: () => IVMHistory;
 }

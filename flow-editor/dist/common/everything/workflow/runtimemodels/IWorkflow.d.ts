@@ -6,7 +6,7 @@ import { ISwitchProps } from "../../flow/runtimeModels/ISwitch";
 import { IExpressionData } from "../../dataType/runtimemodels/IExpression";
 import { IFlowModelBase } from "@stechquick/flow-interfaces/runtime/IFlowModel";
 import { ISLA } from "./ISLA";
-export type WorkflowStepName = "start" | "humantask" | "flow" | "switch" | "end";
+export type WorkflowStepName = "start" | "humantask" | "subFlow" | "flow" | "switch" | "end";
 export declare const NamedFunctions: {
     getUser: string;
     notify: string;
@@ -19,6 +19,7 @@ export interface IWorkflowModel extends IFlowModelBase {
     _name: string;
     desc: string;
     swimlanes: Record<string, IExpressionData>;
+    priority: number;
     sla: ISLA;
     roles: Record<string, IExpressionData>;
     steps: Record<string, IWFStepModel>;
@@ -56,6 +57,7 @@ export type IWFStepProps = {
     label?: IExpressionData;
     forms: Array<IForm>;
     actions: Array<IAction>;
+    priority?: number;
     sla?: ISLA;
 };
 export type IForm = {

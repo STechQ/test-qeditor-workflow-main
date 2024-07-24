@@ -19,4 +19,6 @@ export declare const Updated = "Updated";
 export declare const TaskCompleted = "Task-Completed";
 export declare const Finished = "Finished";
 export type NotificationEventTypes = typeof Created | typeof Updated | typeof TaskCompleted | typeof Finished;
+export declare const initialPriorityForWorkflow = 10;
+export declare const initialPriorityForTask = 10;
 //# sourceMappingURL=types.d.ts.map

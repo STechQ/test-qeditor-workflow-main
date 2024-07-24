@@ -100,6 +100,7 @@ export interface IInputInfo {
 }
 export interface IStepOptions<PropType = IPropObject> {
     name: string;
+    panelLabel: string;
     version: string;
     outputs: Array<string> | ((props: PropType | undefined) => Array<string>);
     inputs: Array<IInputInfo> | (() => Array<IInputInfo>);

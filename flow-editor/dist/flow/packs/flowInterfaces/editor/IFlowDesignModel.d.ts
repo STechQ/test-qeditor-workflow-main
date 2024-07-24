@@ -16,5 +16,6 @@ export interface IFlowCopyModel {
     roles?: Array<IExpressionData>;
     store: Store;
     sla?: ISLA;
+    priority?: number;
 }
 //# sourceMappingURL=IFlowDesignModel.d.ts.map

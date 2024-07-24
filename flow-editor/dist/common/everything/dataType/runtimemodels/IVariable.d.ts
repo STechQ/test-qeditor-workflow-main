@@ -1,8 +1,8 @@
 import { StringTemplates } from "../../../helpers/templates/StringTemplates";
 import { NumberTemplates } from "../../../helpers/templates/NumberTemplates";
 import { IExpressionData } from "./IExpression";
-import { BooleanType, DateTimeType, EnumType, NumberType, ObjectID, DataType, StringType, VariableTypes } from "./types";
-export type IVariable = IVariableBoolean | IVariableDateTime | IVariableEnum | IVariableNumber | IVariableData | IVariableString;
+import { BooleanType, DateTimeType, EnumType, NumberType, ObjectID, DataType, StringType, ConstantType, VariableTypes } from "./types";
+export type IVariable = IVariableBoolean | IVariableDateTime | IVariableEnum | IVariableNumber | IVariableData | IVariableConstant | IVariableString;
 export type IVariableBase = {
     name: string;
     _name: string;
@@ -40,5 +40,9 @@ export type IVariableNumber = IVariableBase & {
 export type IVariableData = IVariableBase & {
     type: DataType;
     objectID: ObjectID;
+};
+export type IVariableConstant = IVariableBase & {
+    type: ConstantType;
+    ID: string;
 };
 //# sourceMappingURL=IVariable.d.ts.map
